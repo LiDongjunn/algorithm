@@ -20,4 +20,17 @@ class Solution_11 {
         }
         return area;
     }
+
+    public int maxArea2(int[] height) {
+        int area = 0;
+        int left = 0;
+        int right = height.length - 1;
+
+        while (left < right){
+            area = height[left] < height[right] ?
+                    Math.max(area, (right - left) * height[left++]) :
+                    Math.max(area, (right - left) * height[right--]);
+        }
+        return area;
+    }
 }
